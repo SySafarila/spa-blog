@@ -1,14 +1,24 @@
 import React, { useContext, useEffect } from "react";
+// import AuthMiddleware from "../../AuthMiddleware";
 import Navbar from "../../components/Navbar";
 import { AuthContext } from "../../Contexts";
 import Form from "./Form";
+import axios from "axios";
 
 const Login = () => {
+  axios.defaults.withCredentials = true;
   const [auth] = useContext(AuthContext);
   useEffect(() => {
     console.log(auth);
   });
+
+  const getUser = async () => {
+    axios.get("http://localhost:8000/api/user").then((res) => {
+      console.log(res);
+    });
+  };
   return (
+    // <AuthMiddleware>
     <div>
       <Navbar />
       <div className="flex justify-center h-screen items-center px-4 lg:px-0">
@@ -19,11 +29,13 @@ const Login = () => {
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
-            {/* <div className="font-bold text-xl mb-2">Login</div> */}
             <Form />
           </div>
           <div className="px-6 pt-4 pb-2">
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <span
+              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+              onClick={() => getUser()}
+            >
               #photography
             </span>
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -36,6 +48,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    // </AuthMiddleware>
   );
 };
 

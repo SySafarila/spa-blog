@@ -35,3 +35,18 @@ Route::post('/login', function (Request $request) {
         ]);
     }
 });
+
+Route::get('/auth/check', function () {
+    $auth = Auth::check();
+    if ($auth == true) {
+        return response()->json([
+            'status' => true,
+            'message' => 'Authenticated'
+        ]);
+    } else {
+        return response()->json([
+            'status' => false,
+            'message' => 'Not authenticated'
+        ]);
+    }
+});

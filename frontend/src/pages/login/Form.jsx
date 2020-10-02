@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { AuthContext } from "../../Contexts";
 
 const Form = () => {
+  const [setAuth] = useContext(AuthContext);
   axios.defaults.withCredentials = true;
 
   const { register, handleSubmit } = useForm();
@@ -14,6 +16,10 @@ const Form = () => {
         .post("http://localhost:8000/api/login", data)
         .then((res) => {
           console.log(res);
+          setAuth(res.data.status);
+          axios.get("http://localhost:8000/api/auth/check").then((res) => {
+            console.log(res.data.message);
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -33,6 +39,7 @@ const Form = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           ref={register}
           name="email"
+          autoComplete="email"
         />
       </div>
       <div className="mb-4">
@@ -44,6 +51,7 @@ const Form = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           ref={register}
           name="password"
+          autoComplete="current-password"
         />
       </div>
       <button
