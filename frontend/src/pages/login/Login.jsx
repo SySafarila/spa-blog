@@ -1,13 +1,35 @@
 import React from "react";
+import Navbar from "../../components/Navbar";
+import Form from "./Form";
 
 const Login = () => {
   return (
     <div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, iste
-        neque. Ipsa amet dolores et earum iusto nesciunt. Deleniti doloremque
-        optio molestias commodi amet rem temporibus praesentium neque qui natus.
-      </p>
+      <Navbar />
+      <div className="flex justify-center h-screen items-center px-4 lg:px-0">
+        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+          <img
+            className="w-full"
+            src="https://tailwindcss.com/img/card-top.jpg"
+            alt="Sunset in the mountains"
+          />
+          <div className="px-6 py-4">
+            {/* <div className="font-bold text-xl mb-2">Login</div> */}
+            <Form />
+          </div>
+          <div className="px-6 pt-4 pb-2">
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              #photography
+            </span>
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              #travel
+            </span>
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              #winter
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
