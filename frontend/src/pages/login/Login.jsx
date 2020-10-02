@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Navbar from "../../components/Navbar";
+import { AuthContext } from "../../Contexts";
 import Form from "./Form";
 
 const Login = () => {
+  const [auth] = useContext(AuthContext);
+  useEffect(() => {
+    console.log(auth);
+  });
   return (
     <div>
       <Navbar />
