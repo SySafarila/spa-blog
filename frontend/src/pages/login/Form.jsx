@@ -1,10 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Form = () => {
+  axios.defaults.withCredentials = true;
+
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    await axios.get("http://localhost:8000/sanctum/csrf-cookie").then((res) => {
+      console.log(res);
+      axios
+        .post("http://localhost:8000/api/login", data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
