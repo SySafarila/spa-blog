@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { AuthContext } from "./Contexts";
 import axios from "axios";
+import config from "./app.json";
 
 const AuthMiddleware = (props) => {
   axios.defaults.withCredentials = true;
@@ -9,7 +10,7 @@ const AuthMiddleware = (props) => {
   useEffect(() => {
     const check = async () => {
       await axios
-        .get("http://localhost:8000/api/auth/check")
+        .get(`${config.apiUrl}/auth/check`)
         .then((res) => {
           setAuth(res.data.status);
           console.log(res.data.message);
@@ -29,7 +30,7 @@ const AuthMiddleware = (props) => {
   if (auth === undefined) {
     return <h1>checking</h1>;
   } else if (auth === false) {
-    return <h1>Redirecting to Login page</h1>;
+    return <h1>Redirecting to Login page in few second</h1>;
   } else if (auth === true) {
     return <div>{props.children}</div>;
   }

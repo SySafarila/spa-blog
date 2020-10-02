@@ -50,3 +50,11 @@ Route::get('/auth/check', function () {
         ]);
     }
 });
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return response()->json([
+        'status' => true,
+        'message' => 'Logout successfully'
+    ]);
+});

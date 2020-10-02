@@ -3,21 +3,22 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { AuthContext } from "../../Contexts";
+import config from "../../app.json";
 
 const Form = () => {
-  const [setAuth] = useContext(AuthContext);
+  const [auth, setAuth] = useContext(AuthContext);
   axios.defaults.withCredentials = true;
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    await axios.get("http://localhost:8000/sanctum/csrf-cookie").then((res) => {
+    await axios.get(`${config.sanctumUrl}/sanctum/csrf-cookie`).then((res) => {
       console.log(res);
       axios
-        .post("http://localhost:8000/api/login", data)
+        .post(`${config.apiUrl}/login`, data)
         .then((res) => {
           console.log(res);
           setAuth(res.data.status);
-          axios.get("http://localhost:8000/api/auth/check").then((res) => {
+          axios.get(`${config.apiUrl}/auth/check`).then((res) => {
             console.log(res.data.message);
           });
         })
