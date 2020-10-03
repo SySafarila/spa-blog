@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Contexts";
 import "./Navbar.css";
 import axios from "axios";
-import config from "../app.json";
+import config from "../config.json";
 
 const Navbar = () => {
   const [auth, setAuth] = useContext(AuthContext);
@@ -32,7 +32,15 @@ const Navbar = () => {
         </ul>
         {auth === true ? (
           <ul className="flex bg-gray-900 p-2 text-gray-300 justify-end">
-            <li className="px-1">Menu 1</li>
+            <li className="px-1">
+              <NavLink
+                exact
+                to="/menu-1"
+                activeClassName="text-blue-400 hover:text-blue-400"
+              >
+                Menu 1
+              </NavLink>
+            </li>
             <li
               className="px-1 hover:text-blue-400"
               onClick={() => logOut()}

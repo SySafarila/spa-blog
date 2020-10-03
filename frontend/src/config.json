@@ -1,0 +1,5 @@
+{
+  "apiUrl": "http://192.168.100.23/blog/backend/public/api",
+  "sanctumUrl": "http://192.168.100.23/blog/backend/public",
+  "sanctum": "http://192.168.100.23/blog/backend/public/sanctum/csrf-cookie"
+}

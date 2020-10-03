@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from "react";
-// import AuthMiddleware from "../../AuthMiddleware";
 import Navbar from "../../components/Navbar";
 import { AuthContext } from "../../Contexts";
 import Form from "./Form";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
-import config from "../../app.json";
+import config from "../../config.json";
+import UnauthMiddleware from "../../middleware/UnauthMiddleware";
 
 const Login = () => {
   axios.defaults.withCredentials = true;
@@ -20,11 +19,8 @@ const Login = () => {
       console.log(res);
     });
   };
-
-  if (auth === true) {
-    return <Redirect to="/" />;
-  } else {
-    return (
+  return (
+    <UnauthMiddleware>
       <div>
         <Navbar />
         <div className="flex justify-center h-screen items-center px-4 lg:px-0">
@@ -54,8 +50,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-    );
-  }
+    </UnauthMiddleware>
+  );
 };
 
 export default Login;

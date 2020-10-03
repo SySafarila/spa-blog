@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { AuthContext } from "./Contexts";
+import { AuthContext } from "../Contexts";
 import axios from "axios";
-import config from "./app.json";
+import config from "../config.json";
+import { Redirect } from "react-router-dom";
 
-const AuthMiddleware = (props) => {
+const UnauthMiddleware = (props) => {
   axios.defaults.withCredentials = true;
   const [auth, setAuth] = useContext(AuthContext);
 
@@ -14,11 +15,6 @@ const AuthMiddleware = (props) => {
         .then((res) => {
           setAuth(res.data.status);
           console.log(res.data.message);
-          if (auth === false) {
-            setTimeout(() => {
-              window.location.replace("/login");
-            }, 3000);
-          }
         })
         .catch((err) => {
           console.log(err);
@@ -28,12 +24,14 @@ const AuthMiddleware = (props) => {
   }, [setAuth, auth]);
 
   if (auth === undefined) {
-    return <h1>checking</h1>;
-  } else if (auth === false) {
-    return <h1>Redirecting to Login page in few second</h1>;
-  } else if (auth === true) {
+    return <h1>check</h1>;
+  }
+  if (auth === false) {
     return <div>{props.children}</div>;
+  }
+  if (auth === true) {
+    return <Redirect to="/" />;
   }
 };
 
-export default AuthMiddleware;
+export default UnauthMiddleware;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthMiddleware from "../AuthMiddleware";
+import AuthMiddleware from "../middleware/AuthMiddleware";
 import Navbar from "../components/Navbar";
 
 const Root = () => {

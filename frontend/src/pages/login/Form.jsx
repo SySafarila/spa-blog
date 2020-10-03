@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { AuthContext } from "../../Contexts";
-import config from "../../app.json";
+import config from "../../config.json";
 
 const Form = () => {
   const [auth, setAuth] = useContext(AuthContext);
