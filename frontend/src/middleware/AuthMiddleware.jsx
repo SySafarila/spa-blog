@@ -31,7 +31,7 @@ const AuthMiddleware = (props) => {
   if (auth === undefined) {
     return <Loading />;
   } else if (auth === false) {
-    return <h1>Redirecting to Login page in few second</h1>;
+    return <Loading message="Redirecting..." />;
   } else if (auth === true) {
     return <div>{props.children}</div>;
   }
