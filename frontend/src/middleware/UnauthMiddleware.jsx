@@ -3,6 +3,7 @@ import { AuthContext } from "../Contexts";
 import axios from "axios";
 import config from "../config.json";
 import { Redirect } from "react-router-dom";
+import Loading from "../pages/loading/Loading";
 
 const UnauthMiddleware = (props) => {
   axios.defaults.withCredentials = true;
@@ -24,7 +25,7 @@ const UnauthMiddleware = (props) => {
   }, [setAuth, auth]);
 
   if (auth === undefined) {
-    return <h1>check</h1>;
+    return <Loading />;
   }
   if (auth === false) {
     return <div>{props.children}</div>;

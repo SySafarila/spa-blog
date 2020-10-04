@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import config from "../../config.json";
 import AuthMiddleware from "../../middleware/AuthMiddleware";
 import Navbar from "../../components/Navbar";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [name, setName] = useState("loading...");
@@ -28,7 +29,7 @@ const Profile = () => {
         <div className="flex justify-center mb-2">
           <img
             src="https://lh3.googleusercontent.com/a-/AOh14Gio8EIH501fQIqemctvjj7pKptI8poLHfTgglTW4g=s96-c-rg-br100"
-            alt="Photo Profile"
+            alt="https://lh3.googleusercontent.com/a-/AOh14Gio8EIH501fQIqemctvjj7pKptI8poLHfTgglTW4g=s96-c-rg-br100"
             className="border-2 border-solid lg:w-1/12 md:w-1/6 rounded-full w-1/3"
           />
         </div>
@@ -40,7 +41,14 @@ const Profile = () => {
         <div className="lg:px-64 mt-3">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             <div className="bg-white border mx-2 lg:mx-0 p-5 rounded-lg">
-              <h1 className="text-2xl">Privacy & personalization</h1>
+              <Link to="/profile/personalization">
+                <h1
+                  className="text-2xl hover:text-blue-600"
+                  style={{ cursor: "pointer" }}
+                >
+                  Personalization
+                </h1>
+              </Link>
               <p className="text-gray-600">
                 See the data in your Google Account and choose what activity is
                 saved to personalize your Google experience

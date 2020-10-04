@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Contexts";
 import axios from "axios";
 import config from "../config.json";
+import Loading from "../pages/loading/Loading";
 
 const AuthMiddleware = (props) => {
   axios.defaults.withCredentials = true;
@@ -28,7 +29,7 @@ const AuthMiddleware = (props) => {
   }, [setAuth, auth]);
 
   if (auth === undefined) {
-    return <h1>checking</h1>;
+    return <Loading />;
   } else if (auth === false) {
     return <h1>Redirecting to Login page in few second</h1>;
   } else if (auth === true) {
