@@ -13,7 +13,7 @@ const Profile = () => {
       await axios
         .get(`${config.apiUrl}/user`)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setName(res.data.name);
         })
         .catch((err) => {

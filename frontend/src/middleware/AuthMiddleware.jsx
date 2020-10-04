@@ -14,7 +14,7 @@ const AuthMiddleware = (props) => {
         .get(`${config.apiUrl}/auth/check`)
         .then((res) => {
           setAuth(res.data.status);
-          console.log(res.data.message);
+          // console.log(res.data.message);
           if (auth === false) {
             setTimeout(() => {
               window.location.replace("/login");
