@@ -35,10 +35,10 @@ const Navbar = () => {
             <li className="px-1">
               <NavLink
                 exact
-                to="/menu-1"
+                to="/profile"
                 activeClassName="text-blue-400 hover:text-blue-400"
               >
-                Menu 1
+                Profile
               </NavLink>
             </li>
             <li

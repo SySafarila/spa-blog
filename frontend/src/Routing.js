@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Contexts } from "./Contexts";
 import Login from "./pages/login/Login";
-import Menu1 from "./pages/menu1/Menu1";
+import Profile from "./pages/profile/Profile";
 import Root from "./pages/Root";
 
 const Routing = () => {
@@ -11,7 +11,7 @@ const Routing = () => {
     <Contexts>
       <BrowserRouter>
         <Switch>
-          <Route path="/menu-1" component={Menu1} exact />
+          <Route path="/profile" component={Profile} exact />
           <Route path="/login" component={Login} exact />
           <Route path="/" component={Root} exact />
         </Switch>
