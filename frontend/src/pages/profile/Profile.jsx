@@ -33,26 +33,45 @@ const Profile = () => {
           />
         </div>
         <h1 className="text-center text-3xl">Welcome, {name}</h1>
-        <p className="text-center text-gray-600">
+        <p className="lg:px-0 px-2 text-center text-gray-600">
           Manage your info, privacy, and security to make Google work better for
           you.
         </p>
         <div className="lg:px-64 mt-3">
-          <div className="grid lg:grid-cols-2 grid-cols-1 gap-3">
-            <div className="bg-white border mx-2 lg:mx-0 p-2 rounded-lg">
-              <h1 className="text-lg">Privacy & personalization</h1>
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
+            <div className="bg-white border mx-2 lg:mx-0 p-5 rounded-lg">
+              <h1 className="text-2xl">Privacy & personalization</h1>
               <p className="text-gray-600">
                 See the data in your Google Account and choose what activity is
                 saved to personalize your Google experience
               </p>
             </div>
-            <div className="bg-white border mx-2 lg:mx-0 p-2 rounded-lg">
-              <h1 className="text-lg">Critical security issues found</h1>
+            <div className="bg-white border mx-2 lg:mx-0 p-5 rounded-lg">
+              <h1 className="text-2xl">Critical security issues found</h1>
               <p className="text-gray-600">
                 Protect your account now by resolving these issues
               </p>
             </div>
+            <div className="bg-white border mx-2 lg:mx-0 p-5 rounded-lg">
+              <h1 className="text-2xl">Account storage</h1>
+              <p className="text-gray-600">
+                Your account storage is shared across Google services, like
+                Gmail and Photos
+              </p>
+            </div>
+            <div className="bg-white border mx-2 lg:mx-0 p-5 rounded-lg">
+              <h1 className="text-2xl">Take the Privacy Checkup</h1>
+              <p className="text-gray-600">
+                This step-by-step guide helps you choose the privacy settings
+                that are right for you
+              </p>
+            </div>
           </div>
+          <p className="lg:px-5 mt-3 px-3 text-gray-600">
+            Only you can see your settings. You might also want to review your
+            settings for Maps, Search, or whichever Google services you use
+            most. Google keeps your data private, safe, and secure.
+          </p>
         </div>
       </div>
     </AuthMiddleware>
