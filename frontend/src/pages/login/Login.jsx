@@ -23,8 +23,8 @@ const Login = () => {
     <UnauthMiddleware>
       <div>
         <Navbar />
-        <div className="flex justify-center h-screen items-center px-4 lg:px-0">
-          <div className="max-w-sm rounded overflow-hidden shadow-lg">
+        <div className="flex justify-center h-screen items-center px-4 lg:px-0 bg-dim">
+          <div className="bg-lightdim max-w-sm overflow-hidden rounded shadow-lg">
             <img
               className="w-full"
               src="https://tailwindcss.com/img/card-top.jpg"
@@ -34,7 +34,7 @@ const Login = () => {
               <Form />
             </div>
             <div className="px-6 pt-4 pb-2">
-              <span
+              {/* <span
                 className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                 onClick={() => getUser()}
               >
@@ -45,7 +45,7 @@ const Login = () => {
               </span>
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #winter
-              </span>
+              </span> */}
             </div>
           </div>
         </div>

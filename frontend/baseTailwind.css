@@ -3,3 +3,15 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+.bg-dim {
+  background-color: #15202b;
+}
+
+.bg-lightdim {
+  background-color: #192734;
+}
+
+.bg-dim-form {
+  background-color: #253341;
+}

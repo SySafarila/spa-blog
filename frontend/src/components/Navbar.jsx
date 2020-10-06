@@ -16,9 +16,9 @@ const Navbar = () => {
     });
   };
   return (
-    <nav className="bg-gray-900">
+    <nav className="bg-dim border-b-2 border-gray-800">
       <div className="flex justify-between">
-        <ul className="flex bg-gray-900 p-2 text-gray-300">
+        <ul className="flex bg-dim p-2 text-gray-300">
           <li className="px-1">
             <NavLink
               exact
@@ -31,7 +31,7 @@ const Navbar = () => {
           </li>
         </ul>
         {auth === true ? (
-          <ul className="flex bg-gray-900 p-2 text-gray-300 justify-end">
+          <ul className="flex bg-dim p-2 text-gray-300 justify-end">
             <li className="px-1">
               <NavLink
                 exact
@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
           </ul>
         ) : (
-          <ul className="flex bg-gray-900 p-2 text-gray-300 justify-end">
+          <ul className="flex bg-dim p-2 text-gray-300 justify-end">
             <li className="px-1">
               <NavLink exact to="/login" activeClassName="text-blue-400">
                 Login

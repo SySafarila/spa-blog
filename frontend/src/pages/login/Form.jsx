@@ -30,38 +30,41 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1 className="text-3xl text-center">Login</h1>
+      <h1 className="text-3xl text-center text-gray-300">Login</h1>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className="block font-bold mb-2 text-gray-500 text-sm">
           Email
         </label>
         <input
           type="text"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="appearance-none bg-dim-form focus:outline-none focus:shadow-outline leading-tight px-3 py-2 rounded shadow text-gray-300 w-full"
           ref={register}
           name="email"
           autoComplete="email"
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2">
+        <label className="block font-bold mb-2 text-gray-500 text-sm">
           Password
         </label>
         <input
           type="password"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="appearance-none bg-dim-form focus:outline-none focus:shadow-outline leading-tight px-3 py-2 rounded shadow text-gray-300 w-full"
           ref={register}
           name="password"
           autoComplete="current-password"
         />
       </div>
       <button
-        className="bg-blue-400 text-white py-1 px-2 rounded focus:bg-blue-500 hover:bg-blue-500 mb-3"
+        className="bg-blue-600 focus:bg-blue-700 font-semibold hover:bg-blue-700 mb-3 px-2 py-1 rounded text-white"
         type="submit"
       >
         Login
       </button>
-      <Link to="/register" className="block hover:text-blue-400 text-center">
+      <Link
+        to="/register"
+        className="block hover:text-blue-400 text-center text-gray-300"
+      >
         Register
       </Link>
     </form>

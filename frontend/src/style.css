@@ -22380,6 +22380,18 @@ video {
           animation: bounce 1s infinite;
 }
 
+.bg-dim {
+  background-color: #15202b;
+}
+
+.bg-lightdim {
+  background-color: #192734;
+}
+
+.bg-dim-form {
+  background-color: #253341;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
