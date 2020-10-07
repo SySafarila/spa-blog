@@ -1,7 +1,23 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import Navbar from "../../components/Navbar";
+import axios from "axios";
+import config from "../../config.json";
 
 const Register = () => {
+  axios.defaults.withCredentials = true;
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    axios
+      .post(`${config.apiUrl}/register`, data)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <Navbar />
@@ -13,7 +29,7 @@ const Register = () => {
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <h1 className="text-3xl text-center text-gray-300">Register</h1>
               <div className="mb-4">
                 <label className="block font-bold mb-2 text-gray-500 text-sm">
@@ -24,6 +40,7 @@ const Register = () => {
                   className="appearance-none bg-dim-form focus:outline-none focus:shadow-outline leading-tight px-3 py-2 rounded shadow text-gray-300 w-full"
                   name="name"
                   autoComplete="name"
+                  ref={register({ required: true })}
                 />
               </div>
               <div className="mb-4">
@@ -35,6 +52,7 @@ const Register = () => {
                   className="appearance-none bg-dim-form focus:outline-none focus:shadow-outline leading-tight px-3 py-2 rounded shadow text-gray-300 w-full"
                   name="username"
                   autoComplete="username"
+                  ref={register({ required: true })}
                 />
               </div>
               <div className="mb-4">
@@ -46,6 +64,7 @@ const Register = () => {
                   className="appearance-none bg-dim-form focus:outline-none focus:shadow-outline leading-tight px-3 py-2 rounded shadow text-gray-300 w-full"
                   name="email"
                   autoComplete="email"
+                  ref={register({ required: true })}
                 />
               </div>
               <div className="mb-4">
@@ -57,6 +76,7 @@ const Register = () => {
                   className="appearance-none bg-dim-form focus:outline-none focus:shadow-outline leading-tight px-3 py-2 rounded shadow text-gray-300 w-full"
                   name="password"
                   autoComplete="password"
+                  ref={register({ required: true, minLength: 8 })}
                 />
               </div>
               <button

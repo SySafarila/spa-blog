@@ -1,7 +1,9 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +36,41 @@ Route::post('/login', function (Request $request) {
             'message' => 'Login failed'
         ]);
     }
+});
+
+Route::post('/register', function (Request $request) {
+    if (User::where('email', $request->email)->first() == true) {
+        return response()->json([
+            'status' => false,
+            'message' => "You can't register with this email"
+        ]);
+    }
+    if (User::where('username', $request->username)->first() == true) {
+        return response()->json([
+            'status' => false,
+            'message' => "You can't register with this username"
+        ]);
+    }
+
+    $request->validate([
+        'name' => 'required|string',
+        'email' => 'required|email|unique:users',
+        'username' => 'required|string|unique:users',
+        'password' => 'required|string|min:8'
+    ]);
+
+    $register = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'username' => $request->username,
+        'active' => true,
+        'password' => Hash::make($request->password)
+    ]);
+
+    return response()->json([
+        'status' => true,
+        'message' => 'Registration Successfully'
+    ]);
 });
 
 Route::get('/auth/check', function () {
