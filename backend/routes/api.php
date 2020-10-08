@@ -33,7 +33,7 @@ Route::post('/login', function (Request $request) {
     } else {
         return response()->json([
             'status' => false,
-            'message' => 'Login failed'
+            'message' => "Email or Password doesn't match"
         ]);
     }
 });
