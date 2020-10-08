@@ -16,7 +16,7 @@ const Navbar = () => {
     });
   };
   return (
-    <nav className="bg-dim border-b-2 border-gray-800">
+    <nav className="bg-dim border-b-2 border-gray-800 relative">
       <div className="flex justify-between">
         <ul className="flex bg-dim p-2 text-gray-300">
           <li className="px-1">
