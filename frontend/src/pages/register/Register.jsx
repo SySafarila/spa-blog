@@ -6,7 +6,7 @@ const Register = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center h-screen items-center px-4 lg:px-0 bg-dim my-10 lg:my-0">
         <div className="bg-lightdim max-w-sm overflow-hidden rounded shadow-lg gb-white">
           <img
             className="w-full"
